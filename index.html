@@ -1,309 +1,360 @@
 <!DOCTYPE html>
-<html lang="en">
+<!-- saved from url=(0030)https://geng-haoran.github.io/ -->
+<html lang="en"><!-- head --><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script>
+    (function () {
+        var a_idx = 0;
+        window.onclick = function (event) {
+            var a = new Array("✨", "🤖", "🥳", "👋", "🦾", "🐽");
 
-<head>
+            var heart = document.createElement("b");
+            heart.onselectstart = new Function('event.returnValue=false');
 
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="">
-<meta name="author" content="">
+            document.body.appendChild(heart).innerHTML = a[a_idx];
+            a_idx = (a_idx + 1) % a.length;
+            heart.style.cssText = "position: fixed;left:-100%;";
 
-<title>Jiaxu Zhang's Homepage</title>
+            var f = 16, 
+                x = event.clientX - f / 2, 
+                y = event.clientY - f,
+                c = randomColor(), 
+                a = 1,
+                s = 1.2; 
 
-<!-- Bootstrap core CSS -->
-<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+            var timer = setInterval(function () { 
+                if (a <= 0) {
+                    document.body.removeChild(heart);
+                    clearInterval(timer);
+                } else {
+                    heart.style.cssText = "font-size:16px;cursor: default;position: fixed;color:" +
+                        c + ";left:" + x + "px;top:" + y + "px;opacity:" + a + ";transform:scale(" +
+                        s + ");";
 
-<!-- Custom fonts for this template -->
-<link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:100,200,300,400,500,600,700,800,900" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
-<link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-<link href="vendor/devicons/css/devicons.min.css" rel="stylesheet">
-<link href="vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
+                    y--;
+                    a -= 0.016;
+                    s += 0.002;
+                }
+            }, 15)
 
-<!-- Custom styles for this template -->
-<link href="css/resume.min.css" rel="stylesheet">
+        }
+        function randomColor() {
 
-</head>
+            return "rgb(" + (~~(Math.random() * 255)) + "," + (~~(Math.random() * 255)) + "," + (~~(Math
+            .random() * 255)) + ")";
 
-<body id="page-top">
+        }
+    }());
+  </script>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
-  <a class="navbar-brand js-scroll-trigger" href="#page-top">
-	<span class="d-block d-lg-none">Start</span>
-	<span class="d-none d-lg-block">
-	  <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="img/profile.jpg" alt="photo">
-	</span>
-  </a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-	<span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-	<ul class="navbar-nav">
-	  <li class="nav-item">
-		<a class="nav-link js-scroll-trigger" href="#about">About</a>
-	  </li>
-	  <li class="nav-item">
-		<a class="nav-link js-scroll-trigger" href="#education">Education</a>
-	  </li>
-	  <li class="nav-item">
-		<a class="nav-link js-scroll-trigger" href="#publications">Publications</a>
-	  </li>
-	  	  <li class="nav-item">
-		<a class="nav-link js-scroll-trigger" href="#experience">Experience</a>
-	  </li>
-	  <li class="nav-item">
-		<a class="nav-link js-scroll-trigger" href="#awards">Awards</a>
-	  </li>
-	</ul>
-  </div>
-</nav>
+  <!-- Google tag (gtag.js) -->
+  <script async="" src="./style/js"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
-<div class="container-fluid p-0">
+    gtag('config', 'G-66DNLPJ6PY');
+  </script>
 
-  <section class="resume-section p-3 p-lg-5 d-flex d-column" id="about">
-	<div class="my-auto">
-	  <h1 class="mb-0">Jiaxu
-		<span class="text-primary">Zhang</span>
-	  </h1>
-	  <h3>张嘉旭</h3>
-	  <div class="subheading mb-5">Wuhan University · Wuhan, China · 430072
-	  </div>
-	  <p class="mb-5">I am a <b>Ph.D. student</b> working with <a href="https://en.whu.edu.cn/info/1073/1569.htm">Prof. Deren Li</a> and <a href="http://tuzhigang.cn/">Prof. Zhigang Tu</a>  in LIESMARS at <b>Wuhan University</b>, China. Before that, I received my B.S. degree in Geographic Information Science from <b>Southeast University</b> in 2020. Currently I am a research intren in <b>Tencent AI Lab</b>. My research interest lies in deep learning, computer vision and computer graphics. My current focus is on motion recognition, retargeting and generation.</p>
-	  <ul class="list-inline list-social-icons mb-0">
-		<li class="list-inline-item">
-		  <a href="#">
-			<span class="fa-stack fa-lg">
-			  <i class="fa fa-circle fa-stack-2x"></i>
-			  <i class="fa fa-wechat fa-stack-1x fa-inverse"></i>
-			</span> zjx186
-		  </a>
-		</li>
-		
-		<li class="list-inline-item">
-		  <a href="#">
-			<span class="fa-stack fa-lg">
-			  <i class="fa fa-circle fa-stack-2x"></i>
-			  <i class="fa fa-qq fa-stack-1x fa-inverse"></i>
-			</span> 756580418
-		  </a>
-		</li>
-
-		<li class="list-inline-item">
-		  <a href="https://github.com/Kebii">
-			<span class="fa-stack fa-lg">
-			  <i class="fa fa-circle fa-stack-2x"></i>
-			  <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-			</span> github.com/Kebii
-		  </a>
-		</li>
-
-		<li class="list-inline-item">
-		  <a href="mailto:zjiaxu@whu.edu.cn">
-			<span class="fa-stack fa-lg">
-			  <i class="fa fa-circle fa-stack-2x"></i>
-			  <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
-			</span> zjiaxu@whu.edu.cn
-		  </a>
-		</li>
-	  </ul>
-	</div>
-  </section>
-
-  <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="education">
-	<div class="my-auto">
-	  <h2 class="mb-5">Education</h2>
-
-	  <div class="resume-item d-flex flex-column flex-md-row mb-5">
-		<div class="resume-content mr-auto">
-		  <h3 class="mb-0">Wuhan University</h3>
-		  <div class="subheading mb-3">Master Degree, Computer Science and Technology</div>
-		  <p>Supervisor: <a href="http://tuzhigang.cn/">Prof. Zhigang Tu</a>, LIESMARS.</p>
-		</div>
-		<div class="resume-date text-md-right">
-		  <span class="text-primary">September 2020 - Present</span>
-		</div>
-	  </div>
-
-	  <div class="resume-item d-flex flex-column flex-md-row mb-5">
-		<div class="resume-content mr-auto">
-		  <h3 class="mb-0">Southeast University</h3>
-		  <div class="subheading mb-3">Bachelor of Science, Geographic Information Science</div>
-		  <p>I received my B.S. degree in Geographic Information Science from Southeast University in 2020.</p>
-		  <p>GPA: 3.88/4.0, Rank: 1/26</p>
-		</div>
-		<div class="resume-date text-md-right">
-		  <span class="text-primary">September 2016 - June 2020</span>
-		</div>
-	  </div>
-
-	</div>
-
-  </section>
-
-  <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="publications">
-	<div class="my-auto">
-	  <h2 class="mb-5">Publications</h2>
-
-	  <div class="resume-item d-flex flex-column flex-md-row mb-5">
-		<div class="resume-content mr-auto">
-		  <div class="text-primary"> Skinned Motion Retargeting with Residual Perception of Motion Semantics & Geometry.</div>
-		  <div><b>Jiaxu Zhang</b>, Junwu Weng, Di Kang, Fang Zhao, Shaoli Huang, Xuefei Zhe, Linchao Bao, Ying Shan, Jue Wang and Zhigang Tu*.</div>
-		  <div>Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR). 2023.</div>
-		</div>
-		<div class="resume-date text-md-right">
-		  <span class="text-primary"><a href="https://semanticdh.github.io/R2ET/">[pdf]</a></span>
-		</div>
-	  </div>
-
-	  <div class="resume-item d-flex flex-column flex-md-row mb-5">
-		<div class="resume-content mr-auto">
-		  <div class="text-primary"> Zoom transformer for skeleton-based group activity recognition.</div>
-		  <div><b>Jiaxu Zhang</b>, Yifan Jia, Wei Xie, and Zhigang Tu*.</div>
-		  <div>IEEE Transactions on Circuits and Systems for Video Technology (T-CSVT). 2022. (IF: 5.859).</div>
-		</div>
-		<div class="resume-date text-md-right">
-		  <span class="text-primary"><a href="https://ieeexplore.ieee.org/abstract/document/9845486/">[pdf]</a></span>
-		</div>
-	  </div>
-
-	  <div class="resume-item d-flex flex-column flex-md-row mb-5">
-		<div class="resume-content mr-auto">
-		  <div class="text-primary"> Joint-bone fusion graph convolutional network for semi-supervised skeleton action recognition.</div>
-		  <div>Zhigang Tu#, <b>Jiaxu Zhang#*</b>, Hongyan Li, Yujin Chen, and Junsong Yuan.</div>
-		  <div>IEEE Transactions on Multimedia (TMM). 2022. (IF: 8.182).</div>
-		</div>
-		<div class="resume-date text-md-right">
-		  <span class="text-primary"><a href="https://arxiv.org/abs/2202.04075">[pdf]</a></span>
-		</div>
-	  </div>
-
-	   <div class="resume-item d-flex flex-column flex-md-row mb-5">
-		<div class="resume-content mr-auto">
-		  <div class="text-primary"> A spatial attentive and temporal dilated (SATD) GCN for skeleton-based action recognition.</div>
-		  <div><b>Jiaxu Zhang</b>, Gaoxiang Ye, Zhigang Tu*, Yongtao Qin, Qianqing Qin, Jinlu Zhang, and Jun Liu.</div>
-		  <div>Asian Conference on Artificial Intelligence Technology (ACAIT), 2020.</div>
-		  <div>CAAI Transactions on Intelligence Technology. 2021. (IF: 7.985)</div>
-		  <ul class="fa-ul mb-0">
-	  	<li>
-		  <i class="fa-li fa fa-trophy text-warning"></i>
-		  <span>Best Student Paper Award</span></li>
-		</ul>
-		</div>
-		<div class="resume-date text-md-right">
-		  <span class="text-primary"><a href="https://ietresearch.onlinelibrary.wiley.com/doi/full/10.1049/cit2.12012">[pdf]</a></span>
-		</div>
-	  </div>
-
-	  <div class="resume-item d-flex flex-column flex-md-row mb-5">
-		<div class="resume-content mr-auto">
-		  <div class="text-primary"> Graph-aware transformer for skeleton-based action recognition.</div>
-		  <div><b>Jiaxu Zhang</b>, Wei Xie, Chao Wang*, Ruide Tu, and Zhigang Tu.</div>
-		  <div>The Visual Computer. 2022. (IF: 2.601).</div>
-		</div>
-		<div class="resume-date text-md-right">
-		  <span class="text-primary"><a href="">[pdf]</a></span>
-		</div>
-	  </div>
-
-	  <div class="resume-item d-flex flex-column flex-md-row mb-5">
-		<div class="resume-content mr-auto">
-		  <div class="text-primary">An online map matching algorithm based on second-order hidden Markov model.</div>
-		  <div>Xiao Fu*, <b>Jiaxu Zhang</b>, and Yue Zhang.</div>
-		  <div>Transportation Research Board (TRB), 2020.</div>
-		  <div>Journal of Advanced Transportation, 2021. (IF: 2.470)</div>
-		</div>
-		<div class="resume-date text-md-right">
-		  <span class="text-primary"><a href="https://www.hindawi.com/journals/jat/2021/9993860/">[pdf]</a></span>
-		</div>
-	  </div>
-	  
-	</div>
-  </section>
-
-    <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="experience">
-	<div class="my-auto">
-	  <h2 class="mb-5">Experience</h2>
-
-	  <div class="resume-item d-flex flex-column flex-md-row mb-5">
-		<div class="resume-content mr-auto">
-		  <div class="text-primary">Research intern in Tencent AI Lab.</div>
-		  <div>Mentor: Dr. Junwu Weng and Dr. Shaoli Huang</div>
-		</div>
-		<div class="resume-date text-md-right">
-		  <span class="text-primary"><a href="#">May 2022 - Present</a></span>
-		</div>
-	  </div>
-
-	  <div class="resume-item d-flex flex-column flex-md-row mb-5">
-		<div class="resume-content mr-auto">
-		  <div class="text-primary">Research assistant in Complex Transportation Network Research Center, SEU.</div>
-		  <div>Mentor: Ass. Prof. Xiao Fu and Prof. Zhiyuan Liu</div>
-		</div>
-		<div class="resume-date text-md-right">
-		  <span class="text-primary"><a href="#">November 2018 - June 2020</a></span>
-		</div>
-	  </div>
-
-	</div>
-  </section>
-
-  <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="awards">
-	<div class="my-auto">
-	  <h2 class="mb-5">Awards</h2>
-	  <ul class="fa-ul mb-0">
-		<li>
-			<i class="fa-li fa fa-trophy text-warning"></i>
-			<span class="text-primary">Wang Zhizhuo Innovative Talent Award, 2023, Top 1%</span></li>
-		<br></br>
-		<li>
-		  <i class="fa-li fa fa-trophy text-warning"></i>
-		  <span class="text-primary">National Scholarship, 2022, Top 3%</span></li>
-		<br></br>
-		<li>
-		  <i class="fa-li fa fa-trophy text-warning"></i>
-		  <span class="text-primary">First-class Scholarship, Wuhan University, 2022, Top 10%</span></li>
-		  <br></br>
-	  	<li>
-		  <i class="fa-li fa fa-trophy text-warning"></i>
-		  <span class="text-primary">First-class Scholarship, Wuhan University, 2021, Top 10%</span></li>
-	  	<br></br>
-	  	<li>
-		  <i class="fa-li fa fa-trophy text-warning"></i>
-		  <span class="text-primary">The 1<sup>st</sup> Runner-up of <a href="https://sutdcv.github.io/multi-modal-video-reasoning/#/leaderboard">ICCV 2021 MMVRAC Challenge</a> (Track 2 and Track 3)</span></li>
-	  	<br></br>
-	  	<li>
-		  <i class="fa-li fa fa-trophy text-warning"></i>
-		  <span class="text-primary">First-class Scholarship for New Graduate Students, Wuhan University, 2020, Top 10%</span></li>
-		  <br></br>
-	  	<li>
-		  <i class="fa-li fa fa-trophy text-warning"></i>
-		  <span class="text-primary">Outstanding graduates of Southeast University, 2020, Top 3%</span></li>
-		  <br></br>
-		<li>
-		  <i class="fa-li fa fa-trophy text-warning"></i>
-		  <span class="text-primary">1<sup>st</sup>
-		   Prize (Meritorious Winner) - Mathematical Contest In Modeling & Interdisciplinary Contest In Modeling (MCM/ICM), 2019</span></li>
-		   <br></br>
-		<li>
-		  <i class="fa-li fa fa-trophy text-warning"></i>
-		  <span class="text-primary">National Scholarship, 2018, Top 3%</span></li>
-	  </ul>
-	</div>
-  </section>
   
-<p align="center">
-<a href="https://clustrmaps.com/site/1bbtb" title="Visit tracker"><img src="//clustrmaps.com/map_v2.png?cl=be8670&w=400&t=tt&d=qZS4ggcBQIgR4I9SYbVQoi-6xMTgYyMGlUnPAq-jWv4&co=ffffff&ct=bd5d38" /></a>
-</div>
-<!-- Bootstrap core JavaScript -->
-<script src="vendor/jquery/jquery.min.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <title>Jiaxu Zhang   |  张嘉旭</title>
+  
+  <meta name="author" content="Jiaxu Zhang">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <link rel="stylesheet" type="text/css" href="./style/stylesheet.css">
+	<link rel="icon" type="image/png" href="./style/icon.png">
+<script type="text/javascript">
+  function hideshow(which){
+  if (!document.getElementById)
+  return
+  if (which.style.display=="block")
+  which.style.display="none"
+  else
+  which.style.display="block"
+  }
+</script><meta http-equiv="origin-trial" content="AymqwRC7u88Y4JPvfIF2F37QKylC04248hLCdJAsh8xgOfe/dVJPV3XS3wLFca1ZMVOtnBfVjaCMTVudWM//5g4AAAB7eyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGV0YWdtYW5hZ2VyLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjk1MTY3OTk5LCJpc1RoaXJkUGFydHkiOnRydWV9"></head>
 
-<!-- Plugin JavaScript -->
-<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+<!-- bib hide -->
 
-<!-- Custom scripts for this template -->
-<script src="js/resume.min.js"></script>
 
-</body>
+<!-- body -->
+<body data-new-gr-c-s-check-loaded="14.1056.0" data-gr-ext-installed="">
+  <!-- self-intro -->
+  <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+    <tr style="padding:0px">
+      <td style="padding:0px">
+        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+          <tr style="padding:0px">
+            <td style="padding:2%;width:55%;vertical-align:middle">
+              <p style="text-align:center">
+                <name>Jiaxu Zhang | 张嘉旭</name>
+              </p>
+              <p style="text-align: justify">
+              <intro>
+                I am a <b>Ph.D. student</b> working with <a href="https://en.whu.edu.cn/info/1073/1569.htm">Prof. Deren Li</a> and <a href="http://tuzhigang.cn/">Prof. Zhigang Tu</a>  in LIESMARS at <b>Wuhan University</b>, China. Before that, I received my B.S. degree from <b>Southeast University</b> in 2020. Currently I am a research intren in <b>Tencent PCG</b>. My research interest lies in deep learning, computer vision and computer graphics. My current focus is on motion generation, retargeting, and recognition.  
+              </intro>
+              <p>
+                Expected graduation in 2026, open to postdoc and research scientist positions.
+              </p>
+              <p style="text-align:center">
+                <a href="mailto:zjuaxu@whu.edu.com">Email</a> &nbsp;/&nbsp;
+                <a href="data/JiaxuZhang-CV.pdf">CV</a> &nbsp;/&nbsp;
+                <a href="https://scholar.google.com.hk/citations?user=jUAyNjEAAAAJ&hl=zh-CN">Google Scholar</a> &nbsp;/&nbsp;
+                <a href="https://github.com/Kebii/">Github</a>
+              </p>
+            </td>
+            <td style="padding:0%; width:26%; max-width:26%;"> <!-- move the photo a bit left -->
+              <br>
+              <!-- <br> -->
+              <img style="padding:1%; width:60%; max-width:60%;  display: block; margin-left: auto; margin-right: auto; " alt="profile photo" src="./images/jiaxuzhang.jpg" class="hoverZoomLink">
+            </td>
+            <!-- <td style="padding:5%;width:37%;max-width:37%"> 
+              <img style="width:100%;max-width:100%" alt="profile photo" src="images/face3.jpg" class="hoverZoomLink">
+              <a href="https://hits.seeyoufarm.com" target="_blank"><img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgeng-haoran.github.io&count_bg=%23FF8400&title_bg=%23545353&icon=tableau.svg&icon_color=%23F3F209&title=hits&edge_flat=false"/></a>
+            </td> -->
+          </tr>
+        </tbody></table>
+        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+    
+  </tbody></table>
 
-</html>
+  <!-- News -->
+  <heading>News</heading><br><table style="width:90%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+          
+    <!-- <br> -->
+    
+    
+    <tr><td style="padding:0px;width:100%;vertical-align:middle">
+    <p>
+      </p>
+      <li>[2024/01] 🎉 One paper gets accepted to ICLR 2024.</li>
+    <p></p> 
+    <p>
+    </p>
+    <li>[2023/02] 🎉 One paper gets accepted to CVPR 2023.</li>
+  <p></p> 
+  </td>
+  </tr>
+  </tbody></table>
+
+  <!-- Research -->
+  <br><heading>Research</heading><br><p>
+      My research interest is broadly in <strong>3D Computer Vision</strong> and <strong>Computer Animation</strong>. My overarching research objective is to contribute to the development of lifelike, intelligent, and interactive 3D virtual avatars.
+
+<table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+    
+    
+    <!--  ----------------------------------------------------------------------------------------------------------------------------------- -->
+<tr>
+  <td style="padding:20px;width:25%;vertical-align:middle">
+    <img src='images/tapmo.jpg' height="150" width="200">
+  </td>
+  <td style="padding:20px;width:75%;vertical-align:middle">
+    <a href="https://semanticdh.github.io/TapMo/">
+      <span class="papertitle">TapMo: Shape-aware Motion Generation of Skeleton-free Characters</span>
+    </a>
+    <br>
+    <strong>Jiaxu Zhang#</strong>, Shaoli Huang#, Zhigang Tu*, Xin Chen, Xiaohang Zhan, Gang Yu, Ying Shan
+    <br>
+    <em>The Twelfth International Conference on Learning Representations (<strong>ICLR</strong>)</em>, 2024
+    <br>
+    <a href="https://semanticdh.github.io/TapMo/">project page </a> / <a href="https://semanticdh.github.io/TapMo/">code </a> / <a href="https://arxiv.org/abs/2310.12678">arxiv </a>
+    <p></p>
+    <p>TapMo is a text-based animation pipeline for generating motion in a wide variety of skeleton-free characters.</p>
+  </td>
+</tr>
+
+<tr>
+  <td style="padding:20px;width:25%;vertical-align:middle">
+    <img src='images/r2et.jpg' height="150" width="200">
+  </td>
+  <td style="padding:20px;width:75%;vertical-align:middle">
+    <a href="https://openaccess.thecvf.com/content/CVPR2023/html/Zhang_Skinned_Motion_Retargeting_With_Residual_Perception_of_Motion_Semantics__CVPR_2023_paper.html">
+      <span class="papertitle">Skinned Motion Retargeting with Residual Perception of Motion Semantics & Geometry</span>
+    </a>
+    <br>
+    <strong>Jiaxu Zhang</strong>, Junwu Weng, Di Kang, Fang Zhao, Shaoli Huang, Xuefei Zhe, Linchao Bao, Ying Shan, Jue Wang, Zhigang Tu*
+    <br>
+    <em>Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (<strong>CVPR</strong>)</em>, 2023
+    <br>
+    <a href="https://semanticdh.github.io/R2ET/">project page </a> / <a href="https://github.com/Kebii/R2ET/">code</a> / <a href="https://arxiv.org/abs/2303.08658">arxiv </a>
+    <p></p>
+    <p>R2ET is a neural motion retargeting model that can preserve the source motion semantics and avoid interpenetration in the target motion.</p>
+  </td>
+</tr>
+
+<tr>
+  <td style="padding:20px;width:25%;vertical-align:middle">
+    <img src='images/zt.jpg' height="150" width="200">
+  </td>
+  <td style="padding:20px;width:75%;vertical-align:middle">
+    <a href="https://ieeexplore.ieee.org/document/9845486">
+      <span class="papertitle">Zoom Transformer for Skeleton-based Group Activity Recognition</span>
+    </a>
+    <br>
+    <strong>Jiaxu Zhang</strong>, Yifan Jia, Wei Xie, and Zhigang Tu*
+    <br>
+    <em>IEEE Transactions on Circuits and Systems for Video Technology (<strong>T-CSVT</strong>)</em>, 2022
+    <br>
+    <a href="https://github.com/Kebii/Zoom-Transformer">code</a>
+    <p></p>
+    <p>We propose a novel Zoom Transformer to exploit both the low-level single-person motion information and the high-level multi-person interaction information in a uniform attention structure.</p>
+  </td>
+</tr>
+
+<tr>
+  <td style="padding:20px;width:25%;vertical-align:middle">
+    <img src='images/jbfgcn.jpg' height="150" width="200">
+  </td>
+  <td style="padding:20px;width:75%;vertical-align:middle">
+    <a href="https://ieeexplore.ieee.org/document/9772775">
+      <span class="papertitle">Joint-bone Fusion Graph Convolutional Network for Semi-supervised Skeleton Action Recognition</span>
+    </a>
+    <br>
+    Zhigang Tu#, <strong>Jiaxu Zhang#*</strong>, Hongyan Li, Yujin Chen, and Junsong Yuan
+    <br>
+    <em>IEEE Transactions on Multimedia (<strong>T-MM</strong>)</em>, 2022
+    <br>
+    <a href="https://arxiv.org/abs/2202.04075">arxiv</a>
+    <p></p>
+    <p>we propose a semi-supervised skeleton-based action recognition method.</p>
+  </td>
+</tr>
+<!--  ----------------------------------------------------------------------------------------------------------------------------------- -->
+
+  </tbody></table>
+
+  <!-- Services -->
+  <!-- <br><heading>Services</heading><br><table style="width:90%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+      <tr>
+        
+        
+        
+      <td style="padding:0px;width:100%;vertical-align:middle">
+        <p>
+          </p><li>Reviewer: SIGGRAPH, NeurIPS, AAAI</li>
+        <p></p>
+      </td>
+    </tr>
+  </tbody></table> -->
+
+  <!-- Experience -->
+  <br><heading>Experience</heading><br><br><table width="100%" align="center" border="0" cellpadding="10"><tbody>
+      
+          
+      
+      <tr>
+        <td style="padding-left:18px;padding-right:20px;width:20%;vertical-align:middle"><img src="./images/whu.png" ,="" width="105"></td>
+        <td width="100%" valign="center">
+          <strong><a href="https://www.whu.edu.cn/" target="_blank"><papertitle>Wuhan University</papertitle> </a></strong>
+          <br> <em>2020.09 - Present</em><br>  <strong>Ph.D Student</strong> in LIEMSARS.
+          <br>I received my <strong>Master Degree</strong> of Computer Technology in 2023. 
+          <!-- <br> <em>2023.06 - 2023.09 (expected)</em> <br> <strong>Student of</strong> <a href="https://engineering.stanford.edu/students-academics/programs/global-engineering-programs/chinese-ugvr/">UGVR Program </a>  -->
+          <br> Research Advisor: Prof. <a href="https://http://tuzhigang.cn/" target="_blank">Zhigang Tu</a>
+        </td>
+      </tr>
+
+      <tr>
+        <td style="padding-left:18px;padding-right:20px;width:20%;vertical-align:middle"><img src="./images/tencent_logo.png" ,="" width="105"></td>
+        <td width="100%" valign="center">
+          <strong><a href="https://ai.tencent.com/" target="_blank"><papertitle>Tencent</papertitle> </a></strong>
+          <br> <em>2023.06 - Present</em><br>  <strong>Research Intern</strong> in Tencent PCG. Advisor: Dr. <a href="https://www.skicyyu.org/" target="_blank">Gang Yu</a> and Dr. <a href="https://chenxin.tech/" target="_blank">Xin Chen</a>
+          <br> <em>2022.07 - 2023.06</em><br>  <strong>Research Intern</strong> in Tencent AI Lab. Advisor: Dr. <a href="https://calcifer.me/" target="_blank">Junwu Weng</a> and Dr. <a href="https://scholar.google.com/citations?user=o31BPFsAAAAJ&hl=zh-CN" target="_blank">Shaoli Huang</a>
+        </td>
+      </tr>
+
+      <tr>
+        <td style="padding-left:18px;padding-right:20px;width:20%;vertical-align:middle"><img src="./images/seu.png" ,="" width="105"></td>
+        <td width="100%" valign="center">
+          <strong><a href="https://www.seu.edu.cn/" target="_blank"><papertitle>Southeast University</papertitle> </a></strong>
+          <br> <em>2016.09 - 2020.06</em><br>  I received my <strong>B.S Degree</strong> of Geographic Information Science in 2020. GPA: 3.88/4.0, Rank: 1/26.
+          <br> <em>2018.11 - 2020.06</em><br>  <strong>Research assistant</strong> in Research Center of Complex Transportation Network (TLab).
+        </td>
+      </tr> 
+        
+  </tbody></table>
+
+  <!-- Selected Awards and Honors -->
+  <br><heading>Selected Awards and Honors</heading><br><table style="width:90%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+          
+          
+          
+
+          
+        <tr><td style="padding:0px;width:100%;vertical-align:middle">
+          <p>
+          </p><li>2023: <a href="https://www.sohu.com/a/745941721_121123740"> Lei Jun Excellence Scholarship </a> (<strong>100,000RMB¥, Top 0.1‰</strong>)</li>
+        <p></p>
+          <p>
+          </p><li>2023: Wang Zhizhuo Innovative Talent Award (8,000RMB¥, Top 1%)</li>
+        <p></p>
+          <p>
+          </p><li>2022: National Scholarship (<strong>Highest Honor</strong> for undergraduates in China, 10,000RMB¥, Top 3%)</li>
+        <p></p>
+          <p>
+          </p><li>2022: First-class Scholarship of Wuhan University (5,000RMB¥, Top 10%)</li>
+        <p></p>
+          <p>
+          </p><li>2021: First-class Scholarship of Wuhan University (5,000RMB¥, Top 10%)</li>
+        <p></p>
+          <p>
+          </p><li>2021: 1<sup>st</sup> Runner-up of <a href="https://sutdcv.github.io/multi-modal-video-reasoning/#/leaderboard">ICCV 2021 MMVRAC Challenge</a> (Track 2 and Track 3)</li>
+        <p></p>
+          <p>
+          </p><li>2020: Outstanding graduates of Southeast University (Top 3%)</li>
+        <p></p>
+          <p>
+          </p><li>2019: Meritorious Winner - Mathematical Contest In Modeling & Interdisciplinary Contest In Modeling, 2019</li>
+        <p></p>
+          <p>
+          </p><li>2018: National Scholarship (<strong>Highest Honor</strong> for undergraduates in China, 8,000RMB¥, Top 3%)</li>
+        <p></p>
+        </td>
+      </tr>
+  </tbody></table>
+
+  <hr>
+  <p align="center">
+    <a href="https://clustrmaps.com/site/1bbtb" title="Visit tracker"><img src="//clustrmaps.com/map_v2.png?cl=be8670&w=400&t=tt&d=qZS4ggcBQIgR4I9SYbVQoi-6xMTgYyMGlUnPAq-jWv4&co=ffffff&ct=bd5d38" /></a>
+  </p>
+
+  <!-- Aknowledgements -->
+  <hr><p style="text-align:center">
+          This homepage is designed based on <a href="https://jonbarron.info/">Jon Barron</a>'s website and deployed on <a href="https://pages.github.com/">Github Pages</a>. Last updated: Aug. 29, 2023
+
+          <br>
+          © 2023 Jiaxu Zhang
+        </p><table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+    <tr>
+      <!-- <br> -->
+      <!-- <br> -->
+      
+        
+      
+      </tr>
+  </tbody></table>
+ 
+
+
+</td></tr></tbody></table></body><grammarly-desktop-integration data-grammarly-shadow-root="true"><template shadowrootmode="open"><style>
+      div.grammarly-desktop-integration {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select:none;
+        user-select:none;
+      }
+
+      div.grammarly-desktop-integration:before {
+        content: attr(data-content);
+      }
+    </style><div aria-label="grammarly-integration" role="group" tabindex="-1" class="grammarly-desktop-integration" data-content="{&quot;mode&quot;:&quot;full&quot;,&quot;isActive&quot;:true,&quot;isUserDisabled&quot;:false}"></div></template></grammarly-desktop-integration></html>
