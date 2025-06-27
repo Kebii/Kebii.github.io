@@ -131,12 +131,43 @@
                   </p>
                 </td>
                 <td style="padding:0%; width:26%; max-width:26%;">
-                  <!-- move the photo a bit left -->
                   <br>
-                  <!-- <br> -->
-                  <img
-                    style="padding:1%; width:60%; max-width:60%;  display: block; margin-left: auto; margin-right: auto; "
-                    alt="profile photo" src="./images/jiaxuzhang.jpg" class="hoverZoomLink">
+                  <!-- Carousel for profile photos -->
+                  <div style="width:100%; max-width:180px; margin:auto; position:relative;">
+                    <div id="profileCarousel" style="overflow:hidden; position:relative;">
+                      <img src="./images/jiaxuzhang.gif" alt="profile gif" class="hoverZoomLink" style="width:100%; display:block;" id="carouselImg">
+                    </div>
+                    <!-- Carousel dots below the image -->
+                    <div style="display:flex; justify-content:center; align-items:center; margin-top:10px; gap:16px;">
+                      <span id="carouselDot0" style="display:inline-block; width:10px; height:10px; border-radius:50%; background:#ffffd0; margin:0 4px; cursor:pointer;" onclick="setCarousel(0)"></span>
+                      <span id="carouselDot1" style="display:inline-block; width:10px; height:10px; border-radius:50%; background:#ffffd0; margin:0 4px; cursor:pointer;" onclick="setCarousel(1)"></span>
+                    </div>
+                  </div>
+                  <script>
+                    const carouselImages = [
+                      {src: "./images/jiaxuzhang.gif", alt: "profile gif"},
+                      {src: "./images/jiaxuzhang.jpg", alt: "profile jpg"}
+                    ];
+                    let carouselIdx = 0;
+                    function updateCarousel() {
+                      const img = document.getElementById('carouselImg');
+                      img.src = carouselImages[carouselIdx].src;
+                      img.alt = carouselImages[carouselIdx].alt;
+                      // Update dots
+                      for (let i = 0; i < carouselImages.length; i++) {
+                        const dot = document.getElementById('carouselDot' + i);
+                        if (dot) {
+                          dot.style.background = (i === carouselIdx) ? '#fba524' : '#a6a6a6';
+                        }
+                      }
+                    }
+                    function setCarousel(idx) {
+                      carouselIdx = idx;
+                      updateCarousel();
+                    }
+                    // Initialize dots on page load
+                    updateCarousel();
+                  </script>
                 </td>
                 <!-- <td style="padding:5%;width:37%;max-width:37%"> 
               <img style="width:100%;max-width:100%" alt="profile photo" src="images/face3.jpg" class="hoverZoomLink">
