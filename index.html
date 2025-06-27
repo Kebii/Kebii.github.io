@@ -137,10 +137,10 @@
                     <div id="profileCarousel" style="overflow:hidden; position:relative;">
                       <img src="./images/jiaxuzhang.gif" alt="profile gif" class="hoverZoomLink" style="width:100%; display:block; cursor:pointer;" id="carouselImg" onclick="nextCarousel()">
                     </div>
-                    <!-- Carousel dots below the image -->
+                    <!-- Carousel emoji buttons below the image -->
                     <div style="display:flex; justify-content:center; align-items:center; margin-top:10px; gap:16px;">
-                      <span id="carouselDot0" style="display:inline-block; width:10px; height:10px; border-radius:50%; background:#ffffd0; margin:0 4px; cursor:pointer;" onclick="setCarousel(0)"></span>
-                      <span id="carouselDot1" style="display:inline-block; width:10px; height:10px; border-radius:50%; background:#ffffd0; margin:0 4px; cursor:pointer;" onclick="setCarousel(1)"></span>
+                      <span id="carouselDot0" style="font-size:20px; cursor:pointer;" onclick="setCarousel(0)">🥰</span>
+                      <span id="carouselDot1" style="font-size:20px; cursor:pointer;" onclick="setCarousel(1)">🤡</span>
                     </div>
                   </div>
                   <script>
@@ -153,11 +153,12 @@
                       const img = document.getElementById('carouselImg');
                       img.src = carouselImages[carouselIdx].src;
                       img.alt = carouselImages[carouselIdx].alt;
-                      // Update dots
+                      // Update emoji style (bold for selected)
                       for (let i = 0; i < carouselImages.length; i++) {
                         const dot = document.getElementById('carouselDot' + i);
                         if (dot) {
-                          dot.style.background = (i === carouselIdx) ? '#fba524' : '#a6a6a6';
+                          dot.style.filter = (i === carouselIdx) ? "drop-shadow(0 0 2px #fba524)" : "none";
+                          dot.style.opacity = (i === carouselIdx) ? "1" : "0.5";
                         }
                       }
                     }
@@ -169,7 +170,7 @@
                       carouselIdx = (carouselIdx + 1) % carouselImages.length;
                       updateCarousel();
                     }
-                    // Initialize dots on page load
+                    // Initialize emoji on page load
                     updateCarousel();
                   </script>
                 </td>
