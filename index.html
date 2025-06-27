@@ -135,7 +135,7 @@
                   <!-- Carousel for profile photos -->
                   <div style="width:100%; max-width:180px; margin:auto; position:relative;">
                     <div id="profileCarousel" style="overflow:hidden; position:relative;">
-                      <img src="./images/jiaxuzhang.gif" alt="profile gif" class="hoverZoomLink" style="width:100%; display:block;" id="carouselImg">
+                      <img src="./images/jiaxuzhang.gif" alt="profile gif" class="hoverZoomLink" style="width:100%; display:block; cursor:pointer;" id="carouselImg" onclick="nextCarousel()">
                     </div>
                     <!-- Carousel dots below the image -->
                     <div style="display:flex; justify-content:center; align-items:center; margin-top:10px; gap:16px;">
@@ -163,6 +163,10 @@
                     }
                     function setCarousel(idx) {
                       carouselIdx = idx;
+                      updateCarousel();
+                    }
+                    function nextCarousel() {
+                      carouselIdx = (carouselIdx + 1) % carouselImages.length;
                       updateCarousel();
                     }
                     // Initialize dots on page load
