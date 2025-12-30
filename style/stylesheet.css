@@ -168,3 +168,35 @@ abs {
 span.highlight {
   background-color: #ffffd0;
 }
+
+.news-container {
+  width: 90%;
+  margin: 0 auto;
+  height: 240px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+  transition: scrollbar-color 0.3s;
+}
+
+.news-container:hover, .news-container.scrolling {
+  scrollbar-color: #fba524 transparent;
+}
+
+.news-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.news-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.news-container::-webkit-scrollbar-thumb {
+  background-color: transparent;
+  border-radius: 3px;
+}
+
+.news-container:hover::-webkit-scrollbar-thumb,
+.news-container.scrolling::-webkit-scrollbar-thumb {
+  background-color: #fba524;
+}

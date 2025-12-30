@@ -193,8 +193,9 @@
 
           <!-- News -->
           <heading>News</heading><br>
+          <div class="news-container">
           <table
-            style="width:90%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+            style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
             <tbody>
 
               <!-- <br> -->
@@ -250,6 +251,19 @@
               </tr>
             </tbody>
           </table>
+          </div>
+          <script>
+            const newsContainer = document.querySelector('.news-container');
+            let isScrolling;
+
+            newsContainer.addEventListener('scroll', () => {
+              newsContainer.classList.add('scrolling');
+              window.clearTimeout(isScrolling);
+              isScrolling = setTimeout(() => {
+                newsContainer.classList.remove('scrolling');
+              }, 1000);
+            });
+          </script>
 
           <!-- Research -->
           <br>
@@ -651,6 +665,11 @@
 
               <tr>
                 <td style="padding:0px;width:100%;vertical-align:middle">
+                  <p>
+                  </p>
+                  <li>2025: Academic Innovation Award of Wuhan University </a> (15,000RMB¥,
+                      Top 1%)</li>
+                  <p></p>
                   <p>
                   </p>
                   <li>2024: NSFC Basic Research Project for Youth Scholars
