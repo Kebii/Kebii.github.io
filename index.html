@@ -86,55 +86,49 @@
 
 <body data-new-gr-c-s-check-loaded="14.1056.0" data-gr-ext-installed>
   <!-- self-intro -->
-  <table
+  <table class="homepage"
     style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
     <tbody>
       <tr style="padding:0px">
         <td style="padding:0px">
-          <table
+          <table class="profile-table"
             style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
             <tbody>
               <tr style="padding:0px">
-                <td style="padding:2%;width:55%;vertical-align:middle">
-                  <p style="text-align:center">
+                <td class="profile-copy" style="padding:2%;width:55%;vertical-align:middle">
+                  <p class="profile-name" style="text-align:center">
                     <name>Jiaxu Zhang | 张嘉旭</name>
                   </p>
-                  <p style="text-align: justify">
-                    <intro>
-                      I am a research scientist at <b>ByteDance Seed</b>, focusing on AIGC and MLLM research.
-
-                      <p>I previously interned at <b>Tencent</b> from 2022 to 2024 and at <b>StepFun</b> from
-                        2024 to 2025, where I worked closely with <a href="https://www.skicyyu.org/">Dr. Gang Yu</a>. I
-                        received my Ph.D. degree jointly from <b>Wuhan University</b> and <b>Nanyang Technological
-                          University</b>, under the supervision of <a href="https://dongzhenwhu.github.io/">Prof. Zhen
-                          Dong</a>
-                        and <a href="https://guosheng.github.io/">Prof. Guosheng Lin</a>.</p>
-                    </intro>
-                  </p>
-                  <p style="text-align: justify">
-                    <intro>
+                  <div class="profile-bio">
+                    <p class="justified">I am a research scientist at <b>ByteDance Seed</b>, focusing on AIGC and MLLM research.</p>
+                    <p>I previously interned at <b>Tencent</b> from 2022 to 2024 and at <b>StepFun</b> from
+                      2024 to 2025, where I worked closely with <a href="https://www.skicyyu.org/">Dr. Gang Yu</a>. I
+                      received my Ph.D. degree jointly from <b>Wuhan University</b> and <b>Nanyang Technological
+                        University</b>, under the supervision of <a href="https://dongzhenwhu.github.io/">Prof. Zhen
+                        Dong</a>
+                      and <a href="https://guosheng.github.io/">Prof. Guosheng Lin</a>.</p>
+                    <p class="justified">
                       My research interests cover computer vision and computer graphics, with a particular focus on
                       multimodal AIGC, 2D/3D character animation, video/motion generation, retargeting, and
-                      recognition.
+                      recognition.</p>
 
-                      <p>Feel free to reach out via WeChat if you are interested in research collaboration.</p>
-                    </intro>
-                  </p>
+                    <p>Feel free to reach out via WeChat if you are interested in research collaboration.</p>
+                  </div>
                   <!-- <p>
                     Expected graduation in 2026, open to postdoc and
                     research scientist opportunities.
                   </p> -->
-                  <p style="text-align:center">
+                  <p class="contact-links" style="text-align:center">
                     <a href="mailto:zjuaxu@whu.edu.com">Email</a>
-                    &nbsp;/&nbsp;
+                    <span aria-hidden="true">&nbsp;/&nbsp;</span>
                     <a href="https://scholar.google.com.hk/citations?user=jUAyNjEAAAAJ&hl=zh-CN">Google
-                      Scholar</a> &nbsp;/&nbsp;
+                      Scholar</a> <span aria-hidden="true">&nbsp;/&nbsp;</span>
                     <a href="https://github.com/Kebii/">Github</a>
-                    &nbsp;/&nbsp;
+                    <span aria-hidden="true">&nbsp;/&nbsp;</span>
                     <a href="images/wechat.jpg">WeChat</a>
                   </p>
                 </td>
-                <td style="padding:0%; width:26%; max-width:26%;">
+                <td class="profile-photo">
                   <br>
                   <!-- Carousel for profile photos -->
                   <div style="width:100%; max-width:180px; margin:auto; position:relative;">
@@ -143,9 +137,9 @@
                         style="width:100%; display:block; cursor:pointer;" id="carouselImg" onclick="nextCarousel()">
                     </div>
                     <!-- Carousel emoji buttons below the image -->
-                    <div style="display:flex; justify-content:center; align-items:center; margin-top:10px; gap:16px;">
-                      <span id="carouselDot0" style="font-size:20px; cursor:pointer;" onclick="setCarousel(0)">🥰</span>
-                      <span id="carouselDot1" style="font-size:20px; cursor:pointer;" onclick="setCarousel(1)">🤡</span>
+                    <div class="carousel-controls">
+                      <button type="button" id="carouselDot0" aria-label="Show profile photo" onclick="setCarousel(0)">🥰</button>
+                      <button type="button" id="carouselDot1" aria-label="Show animated portrait" onclick="setCarousel(1)">🤡</button>
                     </div>
                   </div>
                   <script>
@@ -162,6 +156,7 @@
                       for (let i = 0; i < carouselImages.length; i++) {
                         const dot = document.getElementById('carouselDot' + i);
                         if (dot) {
+                          dot.setAttribute('aria-pressed', String(i === carouselIdx));
                           dot.style.filter = (i === carouselIdx) ? "drop-shadow(0 0 2px #fba524)" : "none";
                           dot.style.opacity = (i === carouselIdx) ? "1" : "0.5";
                         }
@@ -195,7 +190,7 @@
 
           <!-- News -->
           <heading>News</heading><br>
-          <div class="news-container">
+          <div id="news-list" class="news-container">
             <table
               style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
               <tbody>
@@ -260,8 +255,19 @@
               </tbody>
             </table>
           </div>
+          <button type="button" class="news-toggle" aria-controls="news-list" aria-expanded="false" hidden>Show more news</button>
           <script>
             const newsContainer = document.querySelector('.news-container');
+            const newsToggle = document.querySelector('.news-toggle');
+            if (newsContainer.querySelector('li:nth-of-type(4)')) {
+              newsContainer.classList.add('is-collapsed');
+              newsToggle.hidden = false;
+              newsToggle.addEventListener('click', () => {
+                const collapsed = newsContainer.classList.toggle('is-collapsed');
+                newsToggle.setAttribute('aria-expanded', String(!collapsed));
+                newsToggle.textContent = collapsed ? 'Show more news' : 'Show less news';
+              });
+            }
             let isScrolling;
 
             newsContainer.addEventListener('scroll', () => {
@@ -281,17 +287,17 @@
               Vision</strong> and <strong>Generative AI</strong>. My overarching research objective is to advance
             AI-driven methods that <strong>augment and amplify human creativity</strong>.
 
-          <table
+          <table class="research-list"
             style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
             <tbody>
 
               <!--  ----------------------------------------------------------------------------------------------------------------------------------- -->
               <tr>
-                <td style="padding:20px;width:25%;vertical-align:middle">
+                <td>
                   <video src="images/flowact.mp4" width="200" height="150" autoplay loop muted playsinline
                     style="pointer-events: none;"></video>
                 </td>
-                <td style="padding:20px;width:75%;vertical-align:middle">
+                <td>
                   <a href="https://grisoon.github.io/FlowAct-R1/">
                     <span class="papertitle">FlowAct-R1: Towards Interactive Humanoid Video Generation</span>
                   </a>
@@ -309,11 +315,11 @@
               </tr>
 
               <tr>
-                <td style="padding:20px;width:25%;vertical-align:middle">
+                <td>
                   <video src="images/UNIMAGE.mp4" width="200" height="150" autoplay loop muted playsinline
                     style="pointer-events: none;"></video>
                 </td>
-                <td style="padding:20px;width:75%;vertical-align:middle">
+                <td>
                   <a href="https://kebii.github.io/UniMAGE/">
                     <span class="papertitle">Bridging Your Imagination with Audio-Video Generation via a Unified
                       Director</span>
@@ -334,10 +340,10 @@
               </tr>
 
               <tr>
-                <td style="padding:20px;width:25%;vertical-align:middle">
+                <td>
                   <img src='images/dreamdance.gif' height="150" width="200">
                 </td>
-                <td style="padding:20px;width:75%;vertical-align:middle">
+                <td>
                   <a href="https://kebii.github.io/DreamDance/">
                     <span class="papertitle">DreamDance: Animating Character Art via Inpainting Stable Gaussian
                       Worlds</span>
@@ -359,10 +365,10 @@
               </tr>
 
               <tr>
-                <td style="padding:20px;width:25%;vertical-align:middle">
+                <td>
                   <img src='images/mikudance.gif' height="150" width="200">
                 </td>
-                <td style="padding:20px;width:75%;vertical-align:middle">
+                <td>
                   <a href="https://kebii.github.io/MikuDance/">
                     <span class="papertitle">MikuDance: Animating
                       Character Art with Mixed Motion Dynamics</span>
@@ -385,10 +391,10 @@
               </tr>
 
               <tr>
-                <td style="padding:20px;width:25%;vertical-align:middle">
+                <td>
                   <img src='images/paint_gensin.jpg' height="150" width="200">
                 </td>
-                <td style="padding:20px;width:75%;vertical-align:middle">
+                <td>
                   <a href="https://github.com/Kebii/Freehand-Genshin-Diffusion">
                     <span class="papertitle">Freehand-Genshin-Diffusion</span>
                   </a>
@@ -402,10 +408,10 @@
               </tr>
 
               <tr>
-                <td style="padding:20px;width:25%;vertical-align:middle">
+                <td>
                   <img src='images/mret.jpg' height="150" width="200">
                 </td>
-                <td style="padding:20px;width:75%;vertical-align:middle">
+                <td>
                   <a href="https://ieeexplore.ieee.org/abstract/document/10495176">
                     <span class="papertitle">A Modular Neural Motion
                       Retargeting System Decoupling Skeleton and Shape
@@ -429,10 +435,10 @@
               </tr>
 
               <tr>
-                <td style="padding:20px;width:25%;vertical-align:middle">
+                <td>
                   <img src='images/motions.jpg' height="150" width="200">
                 </td>
-                <td style="padding:20px;width:75%;vertical-align:middle">
+                <td>
                   <a href="https://arxiv.org/pdf/2403.11469.pdf">
                     <span class="papertitle">Generative Motion Stylization
                       of Cross-structure Characters within Canonical
@@ -455,10 +461,10 @@
               </tr>
 
               <tr>
-                <td style="padding:20px;width:25%;vertical-align:middle">
+                <td>
                   <img src='images/tapmo.jpg' height="150" width="200">
                 </td>
-                <td style="padding:20px;width:75%;vertical-align:middle">
+                <td>
                   <a href="https://semanticdh.github.io/TapMo/">
                     <span class="papertitle">TapMo: Shape-aware Motion
                       Generation of Skeleton-free Characters</span>
@@ -481,10 +487,10 @@
               </tr>
 
               <tr>
-                <td style="padding:20px;width:25%;vertical-align:middle">
+                <td>
                   <img src='images/r2et.jpg' height="150" width="200">
                 </td>
-                <td style="padding:20px;width:75%;vertical-align:middle">
+                <td>
                   <a
                     href="https://openaccess.thecvf.com/content/CVPR2023/html/Zhang_Skinned_Motion_Retargeting_With_Residual_Perception_of_Motion_Semantics__CVPR_2023_paper.html">
                     <span class="papertitle">Skinned Motion Retargeting
@@ -511,10 +517,10 @@
               </tr>
 
               <tr>
-                <td style="padding:20px;width:25%;vertical-align:middle">
+                <td>
                   <img src='images/zt.jpg' height="150" width="200">
                 </td>
-                <td style="padding:20px;width:75%;vertical-align:middle">
+                <td>
                   <a href="https://ieeexplore.ieee.org/document/9845486">
                     <span class="papertitle">Zoom Transformer for
                       Skeleton-based Group Activity Recognition</span>
@@ -537,10 +543,10 @@
               </tr>
 
               <tr>
-                <td style="padding:20px;width:25%;vertical-align:middle">
+                <td>
                   <img src='images/jbfgcn.jpg' height="150" width="200">
                 </td>
-                <td style="padding:20px;width:75%;vertical-align:middle">
+                <td>
                   <a href="https://ieeexplore.ieee.org/document/9772775">
                     <span class="papertitle">Joint-bone Fusion Graph
                       Convolutional Network for Semi-supervised Skeleton
@@ -581,11 +587,11 @@
           <!-- Experience -->
           <br>
           <heading>Experience</heading><br><br>
-          <table width="100%" align="center" border="0" cellpadding="10" style="border-spacing: 20px;">
+          <table class="experience-list" width="100%" align="center" border="0" cellpadding="10">
             <tbody>
 
               <tr>
-                <td style="padding-left:18px;padding-right:20px;width:20%;vertical-align:middle"><img
+                <td><img
                     src="./images/seed.png" , width="105"></td>
                 <td width="80%" valign="center">
                   <strong><a href="https://seed.bytedance.com/" target="_blank">
@@ -594,12 +600,12 @@
                   <br> <em>2026.01 - Present, Hangzhou</em><br>
                   <strong>Research Scientist</strong> for AIGC and MLLM.
                   <br> Advisor: Dr. <a href="https://scholar.google.com/citations?user=BIixVT0AAAAJ&hl=en"
-                    target="_blank">Mingyuan Gao</a> and Dr. <a href="" target="_blank">Yan Zeng</a>
+                    target="_blank">Mingyuan Gao</a> and <a href="" target="_blank">Yan Zeng</a>
                 </td>
               </tr>
 
               <tr>
-                <td style="padding-left:18px;padding-right:20px;width:20%;vertical-align:middle"><img
+                <td><img
                     src="./images/ByteDanceLOGO.png" , width="105"></td>
                 <td width="80%" valign="center">
                   <strong><a href="https://www.bytedance.com/" target="_blank">
@@ -613,7 +619,7 @@
               </tr>
 
               <tr>
-                <td style="padding-left:18px;padding-right:20px;width:20%;vertical-align:middle"><img
+                <td><img
                     src="./images/step_logo.png" , width="105"></td>
                 <td width="80%" valign="center">
                   <strong><a href="https://www.stepfun.com/" target="_blank">
@@ -628,7 +634,7 @@
               </tr>
 
               <tr>
-                <td style="padding-left:18px;padding-right:20px;width:20%;vertical-align:middle"><img
+                <td><img
                     src="./images/tencent_logo.png" , width="105"></td>
                 <td width="80%" valign="center">
                   <strong><a href="https://ai.tencent.com/" target="_blank">
@@ -648,7 +654,7 @@
               </tr>
 
               <tr>
-                <td style="padding-left:18px;padding-right:20px;width:20%;vertical-align:middle"><img
+                <td><img
                     src="./images/Nanyang_Technological_University-Logo.png" , width="105"></td>
                 <td width="80%" valign="center">
                   <strong><a href="https://www.ntu.edu.sg/" target="_blank">
@@ -663,7 +669,7 @@
               </tr>
 
               <tr>
-                <td style="padding-left:18px;padding-right:20px;width:20%;vertical-align:middle"><img
+                <td><img
                     src="./images/whu.png" , width="100"></td>
                 <td width="80%" valign="center">
                   <strong><a href="https://www.whu.edu.cn/" target="_blank">
@@ -680,7 +686,7 @@
 
 
               <tr>
-                <td style="padding-left:18px;padding-right:20px;width:20%;vertical-align:middle"><img
+                <td><img
                     src="./images/seu.png" , width="100"></td>
                 <td width="80%" valign="center">
                   <strong><a href="https://www.seu.edu.cn/" target="_blank">
