@@ -205,6 +205,39 @@ span.highlight {
   text-align: justify;
 }
 
+#profileCarousel {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+#carouselImg {
+  display: block;
+  width: 100%;
+}
+
+#profileCarousel video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: white;
+  pointer-events: none;
+}
+
+.carousel-controls button[aria-pressed="true"] {
+  filter: drop-shadow(0 0 2px #fba524);
+}
+
+.carousel-controls button[aria-pressed="false"] {
+  opacity: 0.5;
+}
+
 .carousel-controls {
   display: flex;
   justify-content: center;

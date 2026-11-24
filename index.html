@@ -100,7 +100,7 @@
                     <name>Jiaxu Zhang | 张嘉旭</name>
                   </p>
                   <div class="profile-bio">
-                    <p class="justified">I am a research scientist at <b>ByteDance Seed</b>, focusing on AIGC and MLLM research.</p>
+                    <p class="justified">I am a research scientist at <b>ByteDance Seed</b>, contributing to Seedance.</p>
                     <p>I previously interned at <b>Tencent</b> from 2022 to 2024 and at <b>StepFun</b> from
                       2024 to 2025, where I worked closely with <a href="https://www.skicyyu.org/">Dr. Gang Yu</a>. I
                       received my Ph.D. degree jointly from <b>Wuhan University</b> and <b>Nanyang Technological
@@ -132,46 +132,40 @@
                   <br>
                   <!-- Carousel for profile photos -->
                   <div style="width:100%; max-width:180px; margin:auto; position:relative;">
-                    <div id="profileCarousel" style="overflow:hidden; position:relative;">
-                      <img src="./images/jiaxuzhang.gif" alt="profile gif" class="hoverZoomLink"
-                        style="width:100%; display:block; cursor:pointer;" id="carouselImg" onclick="nextCarousel()">
-                    </div>
+                    <button type="button" id="profileCarousel" aria-label="Show animated portrait">
+                      <img src="./images/jiaxuzhang.jpg" alt="Jiaxu Zhang" id="carouselImg">
+                      <video id="carouselVideo" src="./images/zhangjiaxu.mp4" preload="none" muted loop playsinline
+                        disablepictureinpicture disableremoteplayback hidden></video>
+                    </button>
                     <!-- Carousel emoji buttons below the image -->
                     <div class="carousel-controls">
-                      <button type="button" id="carouselDot0" aria-label="Show profile photo" onclick="setCarousel(0)">🥰</button>
-                      <button type="button" id="carouselDot1" aria-label="Show animated portrait" onclick="setCarousel(1)">🤡</button>
+                      <button type="button" id="carouselDot0" aria-label="Show profile photo" aria-pressed="true">🥰</button>
+                      <button type="button" id="carouselDot1" aria-label="Show animated portrait" aria-pressed="false">🤡</button>
                     </div>
                   </div>
                   <script>
-                    const carouselImages = [
-                      { src: "./images/jiaxuzhang.jpg", alt: "profile jpg" },
-                      { src: "./images/jiaxuzhang.gif", alt: "profile gif" }
-                    ];
-                    let carouselIdx = 0;
-                    function updateCarousel() {
-                      const img = document.getElementById('carouselImg');
-                      img.src = carouselImages[carouselIdx].src;
-                      img.alt = carouselImages[carouselIdx].alt;
-                      // Update emoji style (bold for selected)
-                      for (let i = 0; i < carouselImages.length; i++) {
-                        const dot = document.getElementById('carouselDot' + i);
-                        if (dot) {
-                          dot.setAttribute('aria-pressed', String(i === carouselIdx));
-                          dot.style.filter = (i === carouselIdx) ? "drop-shadow(0 0 2px #fba524)" : "none";
-                          dot.style.opacity = (i === carouselIdx) ? "1" : "0.5";
-                        }
+                    const portraitButton = document.getElementById('profileCarousel');
+                    const portraitVideo = document.getElementById('carouselVideo');
+                    const photoButton = document.getElementById('carouselDot0');
+                    const videoButton = document.getElementById('carouselDot1');
+
+                    function showPortraitVideo(showVideo) {
+                      portraitVideo.hidden = !showVideo;
+                      photoButton.setAttribute('aria-pressed', String(!showVideo));
+                      videoButton.setAttribute('aria-pressed', String(showVideo));
+                      portraitButton.setAttribute('aria-label', (showVideo ? photoButton : videoButton).getAttribute('aria-label'));
+                      if (showVideo) {
+                        portraitVideo.play().catch(error => {
+                          if (error.name !== 'AbortError') showPortraitVideo(false);
+                        });
+                      } else {
+                        portraitVideo.pause();
                       }
                     }
-                    function setCarousel(idx) {
-                      carouselIdx = idx;
-                      updateCarousel();
-                    }
-                    function nextCarousel() {
-                      carouselIdx = (carouselIdx + 1) % carouselImages.length;
-                      updateCarousel();
-                    }
-                    // Initialize emoji on page load
-                    updateCarousel();
+
+                    portraitButton.addEventListener('click', () => showPortraitVideo(portraitVideo.hidden));
+                    photoButton.addEventListener('click', () => showPortraitVideo(false));
+                    videoButton.addEventListener('click', () => showPortraitVideo(true));
                   </script>
                 </td>
                 <!-- <td style="padding:5%;width:37%;max-width:37%"> 
